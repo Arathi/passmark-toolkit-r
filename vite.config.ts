@@ -10,7 +10,8 @@ export default defineConfig({
       entry: 'src/main.tsx',
       userscript: {
         icon: 'https://www.cpubenchmark.net/favicon.ico',
-        namespace: 'npm/vite-plugin-monkey',
+        namespace: 'com.undsf.tmus.ptr',
+        author: "Arathi of Nebnizilla",
         match: [
           'https://www.cpubenchmark.net/high_end_cpus.html',
           'https://www.cpubenchmark.net/mid_range_cpus.html',
@@ -23,7 +24,13 @@ export default defineConfig({
         ],
       },
       build: {
-        externalGlobals: {},
+        externalGlobals: {
+          react: cdn.jsdelivr('React', 'umd/react.production.min.js'),
+          'react-dom': cdn.jsdelivr(
+            'ReactDOM',
+            'umd/react-dom.production.min.js',
+          ),
+        },
       },
     }),
   ],
