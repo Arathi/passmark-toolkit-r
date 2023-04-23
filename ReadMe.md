@@ -16,4 +16,4 @@ pnpm vite
 
 ## 使用
 
-不想自己编译，直接打开 https://github.com/Arathi/passmark-toolkit-r/raw/master/dist/passmark-toolkit-r.user.js 开始安装
+不想自己编译，直接点击 [GitHub](https://github.com/Arathi/passmark-toolkit-r/raw/master/dist/passmark-toolkit-r.user.js) 或者 [码云](https://gitee.com/arathi/passmark-toolkit-r/raw/master/dist/passmark-toolkit-r.user.js) 开始安装
