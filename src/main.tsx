@@ -3,9 +3,10 @@ import './index.css';
 
 import Chart from './components/Chart';
 import { IProduct } from './stores/ProductStore';
+import { unsafeWindow } from '$';
 
 // @ts-ignore
-let $ = window.jQuery;
+let $ = unsafeWindow.jQuery;
 
 // 获取产品信息 IProduct[]
 let products: IProduct[] = [];
