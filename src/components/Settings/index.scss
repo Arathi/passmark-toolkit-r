@@ -1,0 +1,27 @@
+.settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .setting-item {
+    margin: 0 8px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .checkbox-label {
+      margin-left: 6px;
+      user-select: none;
+    }
+  }
+
+  .pattern {
+    flex: 1;
+  }
+}
