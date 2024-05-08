@@ -36,7 +36,7 @@ const Item: React.FC<Props> = ({product, index, markMax}) => {
   const alt = index % 2 == 1 ? "alt" : undefined;
   const color = colors[index % colors.length];
   const percent = mark * 86 / markMax;
-  const width = `${percent.toFixed(0)}%`;
+  const width = `${percent.toFixed(2)}%`;
   const count = mark.toLocaleString();
 
   let productName = product.name;

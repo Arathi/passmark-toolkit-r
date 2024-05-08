@@ -1,24 +1,27 @@
 // ==UserScript==
-// @name       passmark-toolkit-r
-// @namespace  com.undsf.tmus.pmtk
-// @version    0.2.1
-// @author     monkey
-// @icon       https://www.cpubenchmark.net/favicon.ico
-// @match      https://www.cpubenchmark.net/high_end_cpus.html
-// @match      https://www.cpubenchmark.net/mid_range_cpus.html
-// @match      https://www.cpubenchmark.net/midlow_range_cpus.html
-// @match      https://www.cpubenchmark.net/low_end_cpus.html
-// @match      https://www.videocardbenchmark.net/high_end_gpus.html
-// @match      https://www.videocardbenchmark.net/mid_range_gpus.html
-// @match      https://www.videocardbenchmark.net/midlow_range_gpus.html
-// @match      https://www.videocardbenchmark.net/low_end_gpus.html
-// @require    https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js
-// @require    https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js
-// @grant      GM_addStyle
-// @grant      unsafeWindow
+// @name         Passmark Toolkit R
+// @namespace    com.undsf.tmus.pmtk
+// @version      0.2.2
+// @author       Arathi of Nebnizilla
+// @icon         https://www.cpubenchmark.net/favicon.ico
+// @homepageURL  https://github.com/Arathi/passmark-toolkit-r
+// @downloadURL  https://github.com/Arathi/passmark-toolkit-r/raw/master/dist/passmark-toolkit-r.user.js
+// @updateURL    https://github.com/Arathi/passmark-toolkit-r/raw/master/dist/passmark-toolkit-r.user.js
+// @match        https://www.cpubenchmark.net/high_end_cpus.html
+// @match        https://www.cpubenchmark.net/mid_range_cpus.html
+// @match        https://www.cpubenchmark.net/midlow_range_cpus.html
+// @match        https://www.cpubenchmark.net/low_end_cpus.html
+// @match        https://www.videocardbenchmark.net/high_end_gpus.html
+// @match        https://www.videocardbenchmark.net/mid_range_gpus.html
+// @match        https://www.videocardbenchmark.net/midlow_range_gpus.html
+// @match        https://www.videocardbenchmark.net/low_end_gpus.html
+// @require      https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js
+// @require      https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js
+// @grant        GM_addStyle
+// @grant        unsafeWindow
 // ==/UserScript==
 
-(t=>{if(typeof GM_addStyle=="function"){GM_addStyle(t);return}const e=document.createElement("style");e.textContent=t,document.head.append(e)})(" .settings{display:flex;flex-direction:row;justify-content:center;align-items:center}.settings .setting-item{margin:0 8px}.settings .setting-item:first-child{margin-left:0}.settings .setting-item:last-child{margin-right:0}.settings .setting-item .checkbox-label{margin-left:6px;-webkit-user-select:none;user-select:none}.settings .pattern{flex:1} ");
+(t=>{if(typeof GM_addStyle=="function"){GM_addStyle(t);return}const e=document.createElement("style");e.textContent=t,document.head.append(e)})(" .settings{display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:15px}.settings .setting-item{margin:0 8px}.settings .setting-item:first-child{margin-left:0}.settings .setting-item:last-child{margin-right:0}.settings .setting-item .checkbox-label{margin-left:6px;-webkit-user-select:none;user-select:none}.settings .pattern{flex:1 256px} ");
 
 (function (require$$0, require$$0$1) {
   'use strict';
@@ -922,7 +925,7 @@
     const alt = index % 2 == 1 ? "alt" : void 0;
     const color = colors[index % colors.length];
     const percent = mark * 86 / markMax;
-    const width = `${percent.toFixed(0)}%`;
+    const width = `${percent.toFixed(2)}%`;
     const count = mark.toLocaleString();
     let productName = product.name;
     if (showChineseName && product.chinese != void 0) {

@@ -19,7 +19,12 @@ export default defineConfig({
       entry: 'src/main.tsx',
       userscript: {
         icon: 'https://www.cpubenchmark.net/favicon.ico',
+        name: "Passmark Toolkit R",
         namespace: 'com.undsf.tmus.pmtk',
+        author: "Arathi of Nebnizilla",
+        homepageURL: "https://github.com/Arathi/passmark-toolkit-r",
+        downloadURL: "https://github.com/Arathi/passmark-toolkit-r/raw/master/dist/passmark-toolkit-r.user.js",
+        updateURL: "https://github.com/Arathi/passmark-toolkit-r/raw/master/dist/passmark-toolkit-r.user.js",
         match: [
           'https://www.cpubenchmark.net/high_end_cpus.html',
           'https://www.cpubenchmark.net/mid_range_cpus.html',
