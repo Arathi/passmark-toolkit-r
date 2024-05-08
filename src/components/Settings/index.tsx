@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { useAtom } from "jotai";
-import { patternAtom, regexAtom, showCompanyColorAtom, showOriginChartAtom } from "../../stores";
+import { 
+  patternAtom,
+  regexAtom,
+  showChineseNameAtom,
+  showCompanyColorAtom,
+  showOriginChartAtom,
+} from "@/stores";
 
 import "./index.scss";
 
 const Settings = () => {
   const [pattern, setPattern] = useAtom(patternAtom);
-  const [regex, setRegex] = useAtom(regexAtom);
+  const [, setRegex] = useAtom(regexAtom);
   const [compileError, setCompileError] = useState(false);
 
   const [showOriginChart, setShowOriginChart] = useAtom(showOriginChartAtom);
   const [showCompanyColor, setShowCompanyColor] = useAtom(showCompanyColorAtom);
+  const [showChineseName, setShowChineseName] = useAtom(showChineseNameAtom);
 
   function compile(input: string) {
     setPattern(input);
@@ -33,6 +40,10 @@ const Settings = () => {
     setShowCompanyColor(checked);
   }
 
+  function updateShowChineseName(checked: boolean) {
+    setShowChineseName(checked);
+  }
+
   return (
     <div className="settings">
       <div className="setting-item pattern">
@@ -51,6 +62,7 @@ const Settings = () => {
           disabled={showOriginChart}
         />
       </div>
+
       <label className="setting-item">
         <input
           name="show-origin-chart"
@@ -63,6 +75,7 @@ const Settings = () => {
         />
         <span className="checkbox-label">原版图表</span>
       </label>
+
       <label className="setting-item">
         <input
           name="show-company-color"
@@ -76,15 +89,22 @@ const Settings = () => {
         />
         <span className="checkbox-label">公司颜色</span>
       </label>
+
       <label className="setting-item">
         <input
           name="show-chinese-name"
           type="checkbox"
           disabled={showOriginChart}
+          checked={showChineseName}
+          onChange={e => {
+            const checked = e.currentTarget.checked;
+            updateShowChineseName(checked);
+          }}
         />
         <span className="checkbox-label">中文名称</span>
       </label>
-      <label className="setting-item">
+
+      <label className="setting-item" hidden>
         <input
           name="show-short-name"
           type="checkbox"
@@ -92,13 +112,16 @@ const Settings = () => {
         />
         <span className="checkbox-label">缩短名称</span>
       </label>
-      <div className="setting-item">
+
+      <div className="setting-item" hidden>
         <button
           disabled={showOriginChart}
           onClick={() => {
             console.info("点击导出按钮");
           }}
-        >导出</button>
+        >
+          导出
+        </button>
       </div>
     </div>
   );

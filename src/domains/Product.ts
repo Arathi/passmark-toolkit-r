@@ -5,6 +5,7 @@ type Product = {
   mark: number;
   price: string;
   company?: Company;
+  chinese?: string;
 };
 
 type Company = "intel" | "amd" | "nvidia";

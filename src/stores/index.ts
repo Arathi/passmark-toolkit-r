@@ -1,5 +1,5 @@
 import { atom } from "jotai";
-import Product from "../domains/Product";
+import Product from "@/domains/Product";
 
 const productsAtom = atom<Product[]>([]);
 

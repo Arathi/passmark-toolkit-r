@@ -1,12 +1,6 @@
-import { useAtom, useAtomValue } from "jotai";
-import Product from "../../domains/Product";
-import { showCompanyColorAtom } from "../../stores";
-
-type Props = {
-  product: Product;
-  index: number;
-  markMax: number;
-};
+import { useAtomValue } from "jotai";
+import Product from "@/domains/Product";
+import { showChineseNameAtom, showCompanyColorAtom } from "@/stores";
 
 const colors = [
   "pink",
@@ -27,17 +21,28 @@ enum CompanyColor {
   Nvidia = "#76B900",
 }
 
+type Props = {
+  product: Product;
+  index: number;
+  markMax: number;
+};
+
 const Item: React.FC<Props> = ({product, index, markMax}) => {
   const showCompanyColor = useAtomValue(showCompanyColorAtom);
+  const showChineseName = useAtomValue(showChineseNameAtom);
 
   const {id, url, mark, price, company} = product;
 
   const alt = index % 2 == 1 ? "alt" : undefined;
-  const productName = product.name;
   const color = colors[index % colors.length];
   const percent = mark * 86 / markMax;
   const width = `${percent.toFixed(0)}%`;
   const count = mark.toLocaleString();
+
+  let productName = product.name;
+  if (showChineseName && product.chinese != undefined) {
+    productName = product.chinese;
+  }
 
   let companyColor: CompanyColor | undefined = undefined;
   if (showCompanyColor) {

@@ -1,6 +1,6 @@
 import { useAtomValue } from "jotai";
-import { filterResultAtom, showOriginChartAtom } from "../../stores";
 import { ReactNode } from "react";
+import { filterResultAtom, showOriginChartAtom } from "@/stores";
 import Product from "./Item";
 
 import "./index.scss";
@@ -12,7 +12,14 @@ const ProductList = () => {
 
   if (!showOriginChart) {
     products.forEach((p, index) => {
-      items.push(<Product key={p.id} product={p} index={index} markMax={markMax} />);
+      items.push(
+        <Product 
+          key={p.id}
+          product={p}
+          index={index}
+          markMax={markMax}
+        />
+      );
     });
   }
 
